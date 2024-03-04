@@ -357,16 +357,6 @@ public class FirstPersonController : MonoBehaviour
 
         #endregion
 
-        #region Jump
-
-        // Gets input and calls jump method
-        if (enableJump && Input.GetKeyDown(jumpKey) && isGrounded)
-        {
-            Jump();
-        }
-
-        #endregion
-
         #region Crouch
 
         if (enableCrouch)
@@ -490,22 +480,6 @@ public class FirstPersonController : MonoBehaviour
         else
         {
             isGrounded = false;
-        }
-    }
-
-    private void Jump()
-    {
-        // Adds force to the player rigidbody to jump
-        if (isGrounded)
-        {
-            rb.AddForce(0f, jumpPower, 0f, ForceMode.Impulse);
-            isGrounded = false;
-        }
-
-        // When crouched and using toggle system, will uncrouch for a jump
-        if (isCrouched && !holdToCrouch)
-        {
-            Crouch();
         }
     }
 
