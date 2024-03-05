@@ -238,7 +238,7 @@ public class FirstPersonController : MonoBehaviour
 
     void GameOver()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
     float camRotation;
