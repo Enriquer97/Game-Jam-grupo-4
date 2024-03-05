@@ -8,6 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -215,7 +216,7 @@ public class FirstPersonController : MonoBehaviour
         {
             if (life > 0)
             {
-                life = life - 1;   
+                life = life - 10;   
             }
             Segundo = 0;
         }
@@ -228,17 +229,26 @@ public class FirstPersonController : MonoBehaviour
         {
             if (life < 100)
             {
-                life = life + 1;
+                life = life + 10;
                 Segundo = 0;
             }
         }
         Debug.Log(Sun + " " + life);
     }
 
+    void GameOver()
+    {
+        SceneManager.LoadScene(1);
+    }
+
     float camRotation;
 
     private void Update()
     {
+        if (life == 0)
+        {
+            GameOver();
+        }
         Segundo += Time.deltaTime; 
         PlayerPosition = Radiacion.transform.position;
         Vector3 dir = Radiacion.transform.position - transform.position;
@@ -406,6 +416,8 @@ public class FirstPersonController : MonoBehaviour
             HeadBob();
         }
     }
+
+   
 
     void FixedUpdate()
     {
