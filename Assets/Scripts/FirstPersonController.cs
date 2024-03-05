@@ -238,6 +238,7 @@ public class FirstPersonController : MonoBehaviour
 
     void GameOver()
     {
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene(0);
     }
 
