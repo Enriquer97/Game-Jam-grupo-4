@@ -18,7 +18,8 @@ public class FirstPersonController : MonoBehaviour
 {
     private Rigidbody rb;
 
-
+    [Range(0, 100)] public int life;
+    private float Segundo;
     public Vector3 PlayerPosition;
     public GameObject Radiacion;
     public bool Sun;
@@ -158,6 +159,7 @@ public class FirstPersonController : MonoBehaviour
     {
         Radiacion = GameObject.Find("Radiacion");
         Sun = false;
+        life = 100;
 
         if (lockCursor)
         {
@@ -209,18 +211,25 @@ public class FirstPersonController : MonoBehaviour
     void OnRayHit()
     {
         Sun = true;
-        Debug.Log(Sun);
+        if (Segundo >= 1)
+        {
+            life = life - 1;
+            Segundo = 0;
+        }
+        Debug.Log(Sun + " " + life);
     }
     void OnNotRayHit()
     {
         Sun = false;
-        Debug.Log(Sun);
+        life = life + Mathf.CeilToInt(1 * Time.deltaTime);
+        Debug.Log(Sun + " " + life);
     }
 
     float camRotation;
 
     private void Update()
     {
+        Segundo += Time.deltaTime; 
         PlayerPosition = Radiacion.transform.position;
         Vector3 dir = Radiacion.transform.position - transform.position;
         RaycastHit rayHit;
