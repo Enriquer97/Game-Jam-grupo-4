@@ -33,6 +33,7 @@ public class ProgressBar : MonoBehaviour
     private AudioSource audiosource;
     private Text txtTitle;
     private float barValue;
+    public GameObject Jugador;
     public float BarValue
     {
         get { return barValue; }
@@ -67,7 +68,8 @@ public class ProgressBar : MonoBehaviour
         bar.color = BarColor;
         barBackground.color = BarBackGroundColor; 
         barBackground.sprite = BarBackGroundSprite;
-
+        Jugador = GameObject.Find("FirstPersonController");
+        barValue = Jugador.GetComponent<FirstPersonController>().life;
         UpdateValue(barValue);
 
 
@@ -75,6 +77,7 @@ public class ProgressBar : MonoBehaviour
 
     void UpdateValue(float val)
     {
+
         bar.fillAmount = val / 100;
         txtTitle.text = Title + " " + val + "%";
 
@@ -92,9 +95,9 @@ public class ProgressBar : MonoBehaviour
 
     private void Update()
     {
-        if (!Application.isPlaying)
+        if (Application.isPlaying)
         {           
-            UpdateValue(50);
+            UpdateValue(Jugador.GetComponent<FirstPersonController>().life);
             txtTitle.color = TitleColor;
             txtTitle.font = TitleFont;
             txtTitle.fontSize = TitleFontSize;

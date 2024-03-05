@@ -213,7 +213,10 @@ public class FirstPersonController : MonoBehaviour
         Sun = true;
         if (Segundo >= 1)
         {
-            life = life - 1;
+            if (life > 0)
+            {
+                life = life - 1;   
+            }
             Segundo = 0;
         }
         Debug.Log(Sun + " " + life);
@@ -221,7 +224,14 @@ public class FirstPersonController : MonoBehaviour
     void OnNotRayHit()
     {
         Sun = false;
-        life = life + Mathf.CeilToInt(1 * Time.deltaTime);
+        if(Segundo >= 1)
+        {
+            if (life < 100)
+            {
+                life = life + 1;
+                Segundo = 0;
+            }
+        }
         Debug.Log(Sun + " " + life);
     }
 
