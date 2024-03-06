@@ -265,7 +265,7 @@ public class FirstPersonController : MonoBehaviour
         Vector3 dir = Radiacion.transform.position - transform.position;
         RaycastHit rayHit;
         Debug.DrawRay(transform.position, dir, Color.red, 0.1f, true);
-        if (Physics.Raycast(transform.position, dir, out rayHit, 2000f))
+        if (Physics.Raycast(transform.position, dir, out rayHit, 2000000f))
         {
             if (rayHit.collider.gameObject.name == "Radiacion")
             {
