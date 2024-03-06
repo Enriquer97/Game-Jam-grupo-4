@@ -27,6 +27,10 @@ public class FirstPersonController : MonoBehaviour
     public int maxLife;
     public int minLife;
 
+    public AudioSource audioSource;
+    public AudioClip bacon;
+    public GameObject burned;
+
     #region Camera Movement Variables
 
     public Camera playerCamera;
@@ -244,6 +248,7 @@ public class FirstPersonController : MonoBehaviour
             {
                 life = life + 10;
                 Segundo = 0;
+               burned.SetActive(false);
             }
             else
             {
