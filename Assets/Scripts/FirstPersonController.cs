@@ -156,6 +156,11 @@ public class FirstPersonController : MonoBehaviour
         }
     }
 
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        GameClear();
+    }
+
     void Start()
     {
         Radiacion = GameObject.Find("Radiacion");
@@ -236,6 +241,11 @@ public class FirstPersonController : MonoBehaviour
         Debug.Log(Sun + " " + life);
     }
 
+    void GameClear()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene(2);
+    }
     void GameOver()
     {
         Cursor.lockState = CursorLockMode.None;
