@@ -24,6 +24,8 @@ public class FirstPersonController : MonoBehaviour
     public Vector3 PlayerPosition;
     public GameObject Radiacion;
     public bool Sun;
+    public int maxLife;
+    public int minLife;
 
     #region Camera Movement Variables
 
@@ -166,6 +168,8 @@ public class FirstPersonController : MonoBehaviour
         Radiacion = GameObject.Find("Radiacion");
         Sun = false;
         life = 100;
+        maxLife = 100;
+        minLife = 0;
 
         if (lockCursor)
         {
@@ -219,9 +223,13 @@ public class FirstPersonController : MonoBehaviour
         Sun = true;
         if (Segundo >= 1)
         {
-            if (life > 0)
+            if (life >= minLife)
+            {  
+                life = life - 40;
+            }
+            else
             {
-                life = life - 10;   
+                life = minLife;
             }
             Segundo = 0;
         }
@@ -232,10 +240,14 @@ public class FirstPersonController : MonoBehaviour
         Sun = false;
         if(Segundo >= 1)
         {
-            if (life < 100)
+            if (life < maxLife)
             {
                 life = life + 10;
                 Segundo = 0;
+            }
+            else
+            {
+                life = maxLife;
             }
         }
         Debug.Log(Sun + " " + life);
