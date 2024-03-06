@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FranPlayGround.unity
     guid: 5040e58684311e14989c893688b14a9b
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 95fddbcdbcf84c342a2cd84497a8230d
   m_configObjects: {}
