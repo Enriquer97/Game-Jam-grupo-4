@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MenuPruebas.unity
-    guid: 1e3cd141650abf34d9cf94f0f732a643
+    path: Assets/UI/Main Menu/Main Menu/Scenes/Main Menu Demo.unity
+    guid: 0571b5ac2f85141729a62dcec949932e
   - enabled: 1
     path: Assets/Scenes/FranPlayGround.unity
     guid: 5040e58684311e14989c893688b14a9b
