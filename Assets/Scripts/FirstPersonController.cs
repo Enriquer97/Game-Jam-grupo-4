@@ -239,7 +239,7 @@ public class FirstPersonController : MonoBehaviour
     void GameOver()
     {
         Cursor.lockState = CursorLockMode.None;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(2);
     }
 
     float camRotation;
