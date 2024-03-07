@@ -226,7 +226,7 @@ public class FirstPersonController : MonoBehaviour
         {
             if (life >= minLife)
             {  
-                life = life - 13;
+                life = life - 25;
                 if (life <= minLife)
                 {
                     life = minLife;
@@ -243,7 +243,7 @@ public class FirstPersonController : MonoBehaviour
         {
             if (life < maxLife)
             {
-                life = life + 13;
+                life = life + 25;
                 Segundo = 0;
             }
             else
