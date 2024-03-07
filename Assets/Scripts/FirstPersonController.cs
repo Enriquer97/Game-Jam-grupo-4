@@ -24,8 +24,8 @@ public class FirstPersonController : MonoBehaviour
     public Vector3 PlayerPosition;
     public GameObject Radiacion;
     public bool Sun;
-    public int maxLife;
-    public int minLife;
+    public int maxLife ;
+    public int minLife ;
 
 
     #region Camera Movement Variables
@@ -226,12 +226,11 @@ public class FirstPersonController : MonoBehaviour
         {
             if (life >= minLife)
             {  
-                life = life - 40;
-
-            }
-            else
-            {
-                life = minLife;
+                life = life - 13;
+                if (life <= minLife)
+                {
+                    life = minLife;
+                }
             }
             Segundo = 0;
         }
@@ -244,7 +243,7 @@ public class FirstPersonController : MonoBehaviour
         {
             if (life < maxLife)
             {
-                life = life + 10;
+                life = life + 13;
                 Segundo = 0;
             }
             else
